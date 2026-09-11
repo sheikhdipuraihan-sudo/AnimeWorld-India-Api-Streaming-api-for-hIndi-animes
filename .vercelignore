@@ -4,3 +4,12 @@ node_modules
 vendor
 .DS_Store
 *.log
+.env
+.env.*
+!.env.example
+.vscode
+.idea
+.v0
+v0_plans
+README.local.md
+DEPLOYMENT.local.md
