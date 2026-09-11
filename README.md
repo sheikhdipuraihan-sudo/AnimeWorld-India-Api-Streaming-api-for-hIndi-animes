@@ -4,7 +4,27 @@ This project is a web application for browsing and watching anime series and mov
 
 ## Deployment
 
-To deploy and run this project, you will need a local web server environment (e.g., XAMPP, WAMP, MAMP) that supports PHP.
+### Vercel (API)
+
+This repository includes a `vercel.json` configuration for the community PHP runtime. The API endpoints under `api/anime-world-india/v1/` are deployed as Vercel Functions and support CORS requests.
+
+1. Import this GitHub repository into Vercel.
+2. Keep the project root as the repository root. Do not set a separate output directory or build command.
+3. Deploy with the default Vercel settings.
+4. Confirm the deployment with:
+   ```text
+   https://YOUR_PROJECT.vercel.app/api/index.php
+   ```
+5. Call an API endpoint, for example:
+   ```text
+   https://YOUR_PROJECT.vercel.app/api/anime-world-india/v1/series.php?p=1
+   ```
+
+The API fetches source HTML at request time, so Vercel environment variables are not required by the current implementation. The `api/index.php` route is a lightweight health response. Vercel Functions are stateless; the API does not persist local files or sessions.
+
+### Traditional PHP hosting
+
+To deploy and run the complete frontend locally, you will need a local web server environment (e.g., XAMPP, WAMP, MAMP) that supports PHP.
 
 1.  **Clone the Repository:**
     ```bash
@@ -457,4 +477,3 @@ All API endpoints are located under `api/anime-world-india/v1/`.
         "error": "Missing episodeId or movieId"
     }
     ```
-
